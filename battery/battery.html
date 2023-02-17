@@ -1,0 +1,153 @@
+<html>
+
+<head>
+  <style>
+    .battery-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 20vh;
+      border-radius: 20px;
+    }
+
+    .battery {
+      width: 500px;
+      height: 100px;
+      border: 2px solid black;
+      position: relative;
+      border-radius: 20px;
+      transform: scale(-1, -1);
+    }
+
+    .battery-level {
+      width: var(--charge, 50%);
+      height: 100%;
+      background-color: var(--battery-color, green);
+      border-top-left-radius: 18px;
+      border-bottom-left-radius: 18px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .battery-level20 {
+      width: 20%;
+      height: 100%;
+      background-color: var(--battery-color, red);
+      border-top-left-radius: 18px;
+      border-bottom-left-radius: 18px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .battery-level50 {
+      width: 50%;
+      height: 100%;
+      background-color: var(--battery-color, orange);
+      border-top-left-radius: 18px;
+      border-bottom-left-radius: 18px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .battery-level100 {
+      width: 100%;
+      height: 100%;
+      background-color: var(--battery-color, green);
+      border-radius: 18px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 50px;
+      background-color: #ddd;
+      padding: 0 20px;
+      border-radius: 16px;
+      max-block-size: 3;
+    }
+
+    .menu button {
+      height: 30px;
+      width: 1000px;
+      background-color: bisque;
+      border: 1px solid black;
+      border-radius: 4px;
+      padding: 0 10px;
+      margin-left: 10px;
+      font-size: 16px;
+
+
+
+    }
+
+    .menu button:hover {
+      background-color: burlywood;
+    }
+
+    .menu button:active {
+      box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu">
+    <button>Новости</button>
+    <button>Лучшее</button>
+    <button>Вообще атас</button>
+
+  </div>
+  <div class="battery-container">
+    <div class="battery">
+      <div class="battery-level"></div>
+    </div>
+  </div>
+  <div class="battery-container">
+    <div class="battery">
+      <div class="battery-level20"></div>
+    </div>
+  </div>
+  <div class="battery-container">
+    <div class="battery">
+      <div class="battery-level50"></div>
+    </div>
+  </div>
+  <div class="battery-container">
+    <div class="battery">
+      <div class="battery-level100"></div>
+    </div>
+  </div>
+</body>
+<script>
+  const batteryLevel = document.querySelector('.battery-level');
+
+  const batteryLevel2 = document.querySelector('.battery-level');
+
+  let charge = 100;
+
+  setInterval(() => {
+    charge -= 0.1;
+    if (charge < 10) {
+      charge = 100;
+    }
+
+    batteryLevel.style.setProperty('--charge', `${charge}%`);
+
+    if (charge <= 20) {
+      batteryLevel.style.setProperty('--battery-color', 'red');
+    } else if (charge <= 50) {
+      batteryLevel.style.setProperty('--battery-color', 'orange');
+    } else {
+      batteryLevel.style.setProperty('--battery-color', 'green');
+    }
+  }, 10);
+</script>
+
+</html>

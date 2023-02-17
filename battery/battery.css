@@ -1,0 +1,21 @@
+#battery-indicator {
+    height: 30px;
+    width: 60px;
+    background-color: #dddddd;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#battery-fill {
+    height: 100%;
+    width: 50%;
+    background: linear-gradient(to right, #00ff00, #ff0000);
+    border-radius: 15px;
+}
