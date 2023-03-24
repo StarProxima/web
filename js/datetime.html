@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Лабы</title>
+    <style>
+        .var {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 100%;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .content {
+            display: none;
+        }
+
+        #content1 {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 100%;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 50px;
+            padding: 0 20px;
+            border-radius: 12px;
+            max-block-size: 3;
+            position: static;
+            margin-bottom: 20px;
+        }
+
+        .menu button {
+            height: 30px;
+            width: 500px;
+            background-color: rgb(56, 56, 213);
+            border: 1px solid black;
+            border-radius: 4px;
+            padding: 0 12px;
+            margin-left: 0;
+            margin-right: 10px;
+            font-size: 20px;
+            flex-grow: 1;
+        }
+
+        .menu button:active {
+            box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="var">
+        <p>Вариант 23</p>
+    </div>
+    <div class="menu">
+        <div>
+            <button onclick="toggleContent(1); showDateTime();">Lab 1 - DateTime</button>
+            <div class="content" id="content1"></div>
+        </div>
+        <!-- <div>
+            <button onclick="toggleContent(2)">Лабораторная 2</button>
+            <div class="content" id="content2">
+                <p>Лабораторная 2</p>
+            </div>
+        </div>
+        <div>
+            <button onclick="toggleContent(3)">Лабораторная 3</button>
+            <div class="content" id="content3">
+                <p>Лабораторная 3</p>
+            </div>
+        </div> -->
+    </div>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById("content" + id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        function showDateTime() {
+            let now = new Date();
+
+            //год с незначащими нулями
+            let year = now.getFullYear();
+
+            let month = (now.getMonth() + 1).toString().padStart(2, '0');
+            let day = now.getDate().toString().padStart(2, '0');
+            let daysOfWeek = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+            // полные дни
+            let fullDaysOfWeek = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+
+            let monthOfYeat = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август',
+                'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+
+            let mon = monthOfYeat[now.getMonth()];
+
+            let day_week = fullDaysOfWeek[now.getDay() - 1];
+
+            let status_date = `${day_week}, ${year} ${day} ${mon}`;
+
+            var hour = now.getHours();
+            var ampm = hour >= 12 ? 'PM' : 'AM';
+            hour = hour % 12;
+
+            let hours = hour.toString().padStart(2, '0');
+            let minutes = now.getMinutes().toString().padStart(2, '0');
+            let seconds = now.getSeconds().toString().padStart(2, '0');
+
+            let status_time = `${hours}:${minutes}:${seconds} ${ampm}`;
+
+            let content1 = document.getElementById("content1");
+            content1.innerHTML = status_date + ' ' + status_time;
+        }
+    </script>
+</body>
+
+</html>
