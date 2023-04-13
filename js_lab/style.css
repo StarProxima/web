@@ -114,3 +114,16 @@
     border: 1px solid black;
     align-content: center;
 }
+
+.button2 {
+    height: 30px;
+    width: 250px;
+    background-color: rgb(169, 42, 203);
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 0 12px;
+    margin-left: 0;
+    margin-right: 10px;
+    font-size: 20px;
+    flex-grow: 1;
+}

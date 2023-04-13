@@ -111,3 +111,11 @@ function executeTask4() {
 
     document.getElementById("task4_block" + block_num.toFixed().toString()).hidden = false;
 }
+
+function Task5AddItem() {
+
+}
+
+function Task5RemoveItem() {
+
+}
