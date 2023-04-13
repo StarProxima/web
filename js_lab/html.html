@@ -62,7 +62,7 @@
             flex-grow: 1;
         }
 
- 
+
 
         .menu button:active {
             box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
@@ -119,6 +119,39 @@
                 </div>
                 <button  onclick="executeTask3()">Find</button>
                 <p id="task3_text"></p>
+
+            </div>
+        </div>
+        <div>
+            <button onclick="toggleContent(4)">Task 4</button>
+            <script>
+                setInterval(() => {
+                    executeTask4()
+                }, 80);
+            </script>
+            <div class="content" id="content4">
+                <div class="row">
+                    <div class="task4_block">
+                        <div id="task4_block1">block 1</div>
+                    </div>
+                    <div class="task4_block">
+                        <div id="task4_block2">block 2</div>
+                    </div>
+                    <div class="task4_block">
+                        <div id="task4_block3">block 3</div>
+                    </div>
+                    <div class="task4_block">
+                        <div id="task4_block4">block 4</div>
+                    </div>
+                    <div class="task4_block">
+                        <div id="task4_block5">block 5</div>
+                    </div>
+
+
+
+
+
+                </div>
 
             </div>
         </div>
