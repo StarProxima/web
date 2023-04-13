@@ -1,0 +1,104 @@
+.var {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+    text-align: center;
+    font-size: 24px;
+}
+
+.content {
+    display: none;
+}
+
+#content1 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+    text-align: center;
+    font-size: 24px;
+}
+
+#content7 {
+    width: 100%;
+    font: monospace;
+    line-height: 40px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.menuall {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 50px;
+    padding: 0 20px;
+    border-radius: 12px;
+    max-block-size: 3;
+    position: static;
+    margin-bottom: 20px;
+}
+
+.menuall button {
+    height: 30px;
+    width: 500px;
+    background-color: rgb(23, 136, 13);
+    border: 1px solid black;
+    border-radius: 100px;
+    padding: 0 12px;
+    margin-left: 0;
+    margin-right: 10px;
+    font-size: 20px;
+    flex-grow: 1;
+    margin: 10px;
+}
+
+.menuall button:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* календарь tack 2*/
+#calendar {
+    width: 100%;
+    font: monospace;
+    line-height: 40px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#calendar thead tr:nth-child(1) td:nth-child(1):hover,
+#calendar thead tr:nth-child(1) td:nth-child(3):hover {
+    cursor: pointer;
+}
+
+#calendar thead tr:last-child {
+    font-size: small;
+    color: rgb(85, 85, 85);
+}
+
+#calendar tbody td {
+    color: rgb(44, 86, 122);
+    border: none;
+}
+
+#calendar tbody td:nth-child(n+6),
+#calendar .holiday {
+    color: rgb(231, 140, 92);
+    border: none;
+}
+
+#calendar tbody td.today {
+    background: rgb(220, 0, 0);
+    color: #fff;
+
+}
