@@ -95,3 +95,9 @@ function Сalendar(id, year, month) {
     }
 }
 Сalendar("calendar", new Date().getFullYear(), new Date().getMonth());
+
+function executeTask3() {
+    forms = document.getElementsByTagName("FORM");
+    content3 = document.getElementById("task3_text");
+    content3.textContent = "Найдено форм: " + forms.length;
+}

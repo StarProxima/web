@@ -11,6 +11,10 @@
     display: none;
 }
 
+.row {
+    display: flex;
+}
+
 #content1 {
     display: flex;
     justify-content: center;

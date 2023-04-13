@@ -62,9 +62,13 @@
             flex-grow: 1;
         }
 
+ 
+
         .menu button:active {
             box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
         }
+
+
     </style>
 </head>
 
@@ -74,11 +78,11 @@
     </div>
     <div class="menu">
         <div>
-            <button onclick="toggleContent(1); showDateTime();">Lab 1 - DateTime</button>
+            <button onclick="toggleContent(1); showDateTime();">Task 1 - DateTime</button>
             <div class="content" id="content1"></div>
         </div>
         <div>
-            <button onclick="toggleContent(2)">Lab 2</button>
+            <button onclick="toggleContent(2)">Task 2</button>
             <div class="content" id="content2">
                 <table id="calendar">
                     <thead>
@@ -99,9 +103,23 @@
             </div>
         </div>
         <div>
-            <button onclick="toggleContent(3)">Lab 3</button>
+            <button onclick="toggleContent(3)">Task 3</button>
+
             <div class="content" id="content3">
-                <p>Lab 3</p>
+
+                <div class="row">
+                    <form>
+                        <input type="text" placeholder="Input in form 1">
+
+                    </form>
+                    <br> <br>
+                    <form>
+                        <input type="text" placeholder="Input in form 2">
+                    </form>
+                </div>
+                <button  onclick="executeTask3()">Find</button>
+                <p id="task3_text"></p>
+
             </div>
         </div>
     </div>
