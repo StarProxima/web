@@ -153,14 +153,73 @@
             <button onclick="toggleContent(5)">Task 5</button>
 
             <div class="content" id="content5">
+                <ul id="task5_list">
+                </ul>
 
                 <div>
-                    <button class="button2" onclick="Task5AddItem()">Add</button>
-                    <button onclick="Task5RemoveItem()">Remove</button>
+                    <button style = "height:30px;
+				width: 243px;" onclick="task5AddItem()">Add</button>
+                    <button style = "height:30px;
+				width: 243px;" onclick="task5RemoveItem()">Remove</button>
                 </div>
 
 
             </div>
+            <script>
+                const list = document.getElementById('task5_list');
+
+                list.addEventListener('click', (event) => {
+                    const target = event.target;
+                    if (target.tagName !== 'LI') {
+                        return;
+                    }
+
+                    // Если элемент уже выбран, снимаем выделение
+                    const selected = document.querySelector('li.selected');
+                    if (selected) {
+                        selected.classList.remove('selected');
+                    }
+
+                    target.classList.add('selected');
+                });
+
+                function task5AddItem() {
+                    const selected = document.querySelector('li.selected');
+
+
+
+                    const content = prompt('Введите содержимое нового элемента');
+
+                    if (!content)  return;
+
+                    const newItem = document.createElement('li');
+                    newItem.textContent = content;
+
+                    const ul = document.createElement('ul');
+                    ul.appendChild(newItem);
+
+                    if(!selected) {
+                        list.appendChild(newItem);
+                    }
+                    selected.appendChild(ul);
+                    selected.classList.remove('selected');
+                }
+
+                function task5RemoveItem() {
+                    const selected = document.querySelector('li.selected');
+
+                    if (!selected) {
+                        alert('Выберите элемент для удаления');
+                        return;
+                    }
+
+                    const confirmation = confirm(`Вы уверены, что хотите удалить элемент "${selected.textContent}"?`);
+                    if (!confirmation) {
+                        return;
+                    }
+                    selected.remove();
+                }
+            </script>
         </div>
     </div>
     <script src="js.js" type="text/javascript"></script>

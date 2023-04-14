@@ -106,16 +106,9 @@ var lastSelectedBlock = 1;
 function executeTask4() {
     for ( i = 1; i <= 5; i++)
         document.getElementById("task4_block" + i.toFixed().toString()).hidden = true;
-    console.log("executeTask4")
+
     let block_num =  ((++lastSelectedBlock) % 5) + 1;
 
     document.getElementById("task4_block" + block_num.toFixed().toString()).hidden = false;
 }
 
-function Task5AddItem() {
-
-}
-
-function Task5RemoveItem() {
-
-}
