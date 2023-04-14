@@ -221,6 +221,59 @@
                 }
             </script>
         </div>
+        <div>
+            <button onclick="toggleContent(6)">Task 6</button>
+            <script>
+
+            </script>
+            <div class="content" id="content6">
+                <table class="task6_table" id="task6_table">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <script>
+                let table = document.getElementById("task6_table");
+
+                for (let i = 0; i < table.rows.length; i++) {
+                    for (let j = 0; j < table.rows[i].cells.length; j++) {
+                        table.rows[i].cells[j].addEventListener("dblclick", function() {
+
+                            for (let i = 0; i < table.rows.length; i++) {
+                                for (let j = 0; j < table.rows[i].cells.length; j++) {
+                                    table.rows[i].cells[j].innerHTML = '';
+                                }
+                            }
+
+                            var img = document.createElement('img');
+                            img.src = "https://sun9-10.userapi.com/impg/0FVXLpm-vbsLhX9f2rgGUuf8DHlh90XDB_MiHA/r3prwECw4d4.jpg?size=1620x2160&quality=95&sign=e9ee214206a8fc192da855891de12d59&type=album";
+                            img.width = 80;
+                            img.height = 80;
+                            this.appendChild(img);
+                        });
+                    }
+                }
+            </script>
+        </div>
     </div>
     <script src="js.js" type="text/javascript"></script>
 </body>

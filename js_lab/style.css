@@ -127,3 +127,18 @@
     font-size: 20px;
     flex-grow: 1;
 }
+
+/*task 6*/
+
+.task6_table{
+    padding: 30px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.task6_table td{
+    width: 80px;
+    height: 80px;
+    border: 1px solid black;
+    background-image: image('https://sun9-10.userapi.com/impg/0FVXLpm-vbsLhX9f2rgGUuf8DHlh90XDB_MiHA/r3prwECw4d4.jpg?size=1620x2160&quality=95&sign=e9ee214206a8fc192da855891de12d59&type=album');
+}
