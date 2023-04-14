@@ -274,6 +274,69 @@
                 }
             </script>
         </div>
+        <div>
+            <button onclick="toggleContent(7)">Task 7</button>
+            <script>
+
+            </script>
+            <div class="content" id="content7">
+                <div id="task_7" class="hidden">
+                    <ul id="slad_list_name">Cладости (кликабельно)</ul>
+                    <div id = "slad_list" style="display: none" >
+                        <li id="sl_1" class="my_list_no">Супер контик</li>
+                        <li id="sl_2" class="my_list_no">Шоколадка</li>
+                        <li id="sl_3" class="my_list_no">Печенье</li>
+                        <p id='sl_end' style="display: none">Сладости закончились!</p>
+                    </div>
+
+
+                </div>
+            </div>
+            <script>
+                let flag = 0
+                function fade(element, callback) {
+                    let op = 1;  // initial opacity
+                    let timer = setInterval(function () {
+                        if (op <= 0.1){
+                            clearInterval(timer);
+                            element.style.display = 'none';
+                            flag += 1;
+                            callback();
+                        }
+                        element.style.opacity = op;
+                        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+                        op -= op * 0.1;
+                    }, 50);
+                }
+
+                let sl1 = document.getElementById('sl_1')
+                let sl2 = document.getElementById('sl_2')
+                let sl3 = document.getElementById('sl_3')
+
+                block_1 = [sl1, sl2, sl3]
+
+                sl1.addEventListener('click', () => fade(sl1, alert_sladosty))
+                sl2.addEventListener('click', () => fade(sl2, alert_sladosty))
+                sl3.addEventListener('click', () => fade(sl3, alert_sladosty))
+
+                function alert_sladosty(){
+                    if (flag === 3){
+                        document.getElementById('sl_end').style.display = 'block';
+                    }
+                }
+                let slad_list_name = document.getElementById('slad_list_name');
+                let slad_list = document.getElementById('slad_list');
+                // отображение списка вкусняшек
+                slad_list_name.onclick = function() {
+                    if (slad_list.style.display === "block") {
+                        slad_list.style.display = "none";
+                    } else {
+                        slad_list.style.display = "block";
+                    }
+                }
+
+            </script>
+        </div>
     </div>
     <script src="js.js" type="text/javascript"></script>
 </body>
