@@ -55,6 +55,7 @@
             background-color: rgb(56, 56, 213);
             border: 1px solid black;
             border-radius: 4px;
+            color: white;
             padding: 0 12px;
             margin-left: 0;
             margin-right: 10px;
@@ -399,6 +400,287 @@
             </div>
             <script>
                 
+
+            </script>
+        </div>
+        <div>
+            <button onclick="toggleContent(9)">Task 9</button>
+
+            <div class="content" id="content9">
+
+                <br>
+                <br>
+                <div style="display: block; font-size: 32px;">Google LLC</div>
+                <br>
+                <!-- onsubmit="return false;" -->
+                <form id="task9-form" >
+                    <input type="text" id="fio" placeholder="ФИО">
+                    <label id="FioErr" style="color:red; display:none">Неверный формат ФИО</label>
+                    <input type="text" id="email2" placeholder="E-mail">
+                    <label id="MailErr" style="color:red; display:none">Неверный формат почты</label>
+                    <input type="password" id="password2" placeholder="Пароль">
+                    <label id="PassErr" style="color:red; display:none">Неверный формат пароля. Пароль должен состоять хотя бы из 8 символов и хотя бы одной цифры.</label>
+                    <input type="password" id="password3" placeholder="Подтвердите пароль">
+                    <label id="ConfPassErr" style="color:red; display:none">Пароли не совпадают</label>
+                    <input type="phone" id="phone" placeholder="Номер телефона">
+                    <label id="PhoneErr" style="color:red; display:none ">Неверный формат телефона</label><br>
+                    <br>
+                    <label for="birthday">Дата рождения:</label><br>
+                    <input type="date" id="birthday" name="birthday">
+                    <label id="birthErr" style="color:red; display:none">Неверный формат даты</label>
+
+                    <p class = "check" style="font-size: 17px;">Ваши навыки</p>
+                    <label class="language"><input type="checkbox" name="languages" value="Vue"> Vue</label>
+                    <label class="language"><input type="checkbox" name="languages" value="React"> React</label>
+                    <label class="language"><input type="checkbox" name="languages" value="Angular"> Angular</label>
+                    <label class="language"><input type="checkbox" name="languages" value="Flutter"> Flutter</label>
+                    <label class="language"><input type="checkbox" name="languages" value="Spring"> Spring</label>
+                    <p class="check_gen" style="font-size: 17px;">Пол</p>
+                    <label class="language"><input type="radio" name="gender" value="male"> М</label>
+                    <label class="language"><input type="radio" name="gender" value="female"> Ж</label>
+
+                    <p style="display: block; font-size: 17px;" for="professions">Выберите вашу профессию:</p>
+                    <select style="display: block; font-size: 17px;" id="professions" name="professions" onchange="showOtherInput()">
+                        <option value="designer">Designer</option>
+                        <option value="manager">Manager</option>
+                        <option value="front">Front-end</option>
+                        <option value="back">Back-end</option>
+                        <option value="mobile">Mobile</option>
+                        <option value="other">Другое</option>
+                    </select>
+
+                    <div id="other-input" style="display: none;">
+                        <br>
+                        <label style="display: block; font-size: 17px;  margin-bottom: 20px;" for="other-profession">Ваша профессия:</label>
+                        <input style="display: block; font-size: 17px;  margin-bottom: 20px;" type="text" id="other-profession" name="other-profession">
+                    </div>
+
+                    <p style="display: block; font-size: 19px;">О себе:</p>
+                    <textarea id="AboutMe" style="display: block; font-size: 17px;" rows="4" cols="50" scrolling="auto"  placeholder="23 y.o. designer from San Francisco"></textarea>
+
+                    <br>
+
+                    <button type="submit">Зарегистрироваться</button>
+                    <button type="button" id="clear-button">Очистить</button>
+<!--                    <div>-->
+<!--                        <button  type="submit" style = "height:30px;-->
+<!--				width: 243px;" >Зарегистрироваться</button>-->
+<!--                        <button  type="button" id="clear-button" style = "height:30px;-->
+<!--				width: 243px;" >Очистить</button>-->
+<!--                    </div>-->
+                </form>
+
+
+
+
+            </div>
+            <script>
+                const form = document.querySelector('form');
+                const submitButton = document.querySelector('[type="submit"]');
+                submitButton.disabled = true;
+
+                const fioInput = document.querySelector('#fio');
+
+                fioInput.addEventListener('input', function(event) {
+                    const fioRegex = /^[А-ЯЁ][а-яё]+ [А-ЯЁ][а-яё]+( [А-ЯЁ][а-яё]+)?$/;;
+                    const fioValue = event.target.value.trim();
+                    const fioErr = document.querySelector('#FioErr');
+
+                    if (fioRegex.test(fioValue)) {
+                        fioInput.style.borderColor = '#ccc';
+                        fioErr.style.display = "none";
+                        fioInput.classList.remove('error');
+                        submitButton.disabled = false;
+                    } else {
+                        fioInput.style.borderColor = 'red';
+                        fioErr.style.display = "block";
+                        fioInput.classList.add('error');
+                        submitButton.disabled = true;
+                    }
+                });
+
+                document.querySelector('#email2').addEventListener('input', function(event) {
+                    const emailInput = event.target;
+                    const emailValue = emailInput.value;
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    const MailErr = document.querySelector('#MailErr');
+
+                    if (emailRegex.test(emailValue)) {
+                        emailInput.style.borderColor = '#ccc';
+                        MailErr.style.display = "none";
+                        emailInput.classList.remove('error');
+                        submitButton.disabled = false;
+                    } else {
+                        emailInput.style.borderColor = 'red';
+                        MailErr.style.display = "block";
+                        emailInput.classList.add('error');
+                        submitButton.disabled = true;
+                    }
+                });
+
+                document.querySelector('#password2').addEventListener('input', function(event) {
+                    const passwordInput = event.target;
+                    const passwordValue = passwordInput.value;
+                    const passwordRegex = /^(?=.*\d).{8,}$/;
+                    const PassErr= document.querySelector('#PassErr');
+
+                    if (passwordRegex.test(passwordValue)) {
+                        passwordInput.style.borderColor = '#ccc';
+                        PassErr.style.display = "none";
+                        passwordInput.classList.remove('error');
+                        submitButton.disabled = false;
+                    } else {
+                        passwordInput.style.borderColor = 'red';
+                        PassErr.style.display = "block";
+                        passwordInput.classList.add('error');
+                        submitButton.disabled = true;
+                    }
+                });
+
+                document.querySelector('#password3').addEventListener('input', function(event) {
+                    const passwordConfirmInput = event.target;
+                    const passwordConfirmValue = passwordConfirmInput.value;
+                    const passwordValue = document.querySelector('#password2').value;
+                    const ConfPassErr = document.querySelector('#ConfPassErr');
+
+                    if (passwordConfirmValue === passwordValue) {
+                        passwordConfirmInput.style.borderColor = '#ccc';
+                        ConfPassErr.style.display = "none";
+                        passwordConfirmInput.classList.remove('error');
+                        submitButton.disabled = false;
+                    } else {
+                        passwordConfirmInput.style.borderColor = 'red';
+                        ConfPassErr.style.display = "block";
+                        passwordConfirmInput.classList.add('error');
+                        submitButton.disabled = true;
+                    }
+                });
+
+                document.querySelector('#phone').addEventListener('input', function(event) {
+                    const phoneInput = event.target;
+                    const phoneValue = phoneInput.value;
+                    const phoneRegex = /^(\+7)?\s?(\(\d{3}\)|\d{3})\s?\d{3}(-|\s)?\d{2}(-|\s)?\d{2}$/;
+                    const PhoneErr = document.querySelector('#PhoneErr');
+
+                    if (phoneRegex.test(phoneValue)) {
+                        phoneInput.style.borderColor = '#ccc';
+                        PhoneErr.style.display = "none";
+                        phoneInput.classList.remove('error');
+                        submitButton.disabled = false;
+                    } else {
+                        phoneInput.style.borderColor = 'red';
+                        PhoneErr.style.display = "block";
+                        phoneInput.classList.add('error');
+                        submitButton.disabled = true;
+                    }
+                });
+
+                const birthdayInput = document.getElementById('birthday');
+
+                birthdayInput.addEventListener('change', function(event) {
+                    const birthdayValue = new Date(event.target.value);
+                    const minDate = new Date('1950-01-01');
+                    const maxDate = new Date('2023-12-31');
+                    const birthErr = document.querySelector('#birthErr');
+
+                    if (birthdayValue < minDate || birthdayValue > maxDate) {
+                        birthdayInput.style.borderColor = 'red';
+                        birthErr.style.display = "block";
+                        submitButton.disabled = true;
+                    } else {
+                        birthErr.style.display = "none";
+                        birthdayInput.style.borderColor = '#ccc';
+                        submitButton.disabled = false;
+                    }
+                });
+
+                const languageCheckboxes = document.querySelectorAll('input[type="checkbox"][name="languages"]');
+                const languagesTitle = document.querySelector('.check');
+
+                document.querySelector('#task9-form').addEventListener('submit', function(event) {
+                    let isLanguageSelected = false;
+
+                    for (const checkbox of languageCheckboxes)
+                    {
+                        if (checkbox.checked) {
+                            isLanguageSelected = true;
+                            break;
+                        }
+                    }
+
+                    if (isLanguageSelected) {
+                        languagesTitle.style.color = 'black';
+                        languagesTitle.classList.remove('error');
+                    } else {
+                        languagesTitle.style.color = 'red';
+                        languagesTitle.classList.add('error');
+                        event.preventDefault();
+                    }
+                });
+
+                const genderRadios = document.querySelectorAll('input[type="radio"][name="gender"]');
+                const genderTitle = document.querySelector('.check_gen');
+
+                document.querySelector('#task9-form').addEventListener('submit', function(event) {
+                    let isGenderSelected = false;
+
+                    for (const radio of genderRadios) {
+                        if (radio.checked) {
+                            isGenderSelected = true;
+                            break;
+                        }
+                    }
+
+                    if (!isGenderSelected) {
+                        event.preventDefault();
+                        genderTitle.style.color = 'red';
+                    }
+                });
+
+                function showOtherInput() {
+                    const select = document.getElementById("professions");
+                    const otherInput = document.getElementById("other-input");
+                    if (select.value === "other") {
+                        otherInput.style.display = "block";
+                    } else {
+                        otherInput.style.display = "none";
+                    }
+                }
+
+                const clearBtn2 = document.querySelector('#clear-button');
+                const inputFields2 = document.querySelectorAll('input');
+
+                clearBtn2.addEventListener('click', function() {
+                    const emailInput = document.querySelector('#email2');
+                    const passwordInput = document.querySelector('#password2');
+                    const passwordConfirmInput = document.querySelector('#password3');
+                    const phoneInput = document.querySelector('#phone');
+                    const AboutMe = document.getElementById('AboutMe');
+                    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                    const radios = document.querySelectorAll('input[type="radio"]');
+                    const prof = document.getElementById("professions");
+                    const otherInput = document.getElementById("other-input");
+
+                    checkboxes.forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
+                    radios.forEach(radio => {
+                        radio.checked = false;
+                    });
+
+                    inputFields2.forEach(input => input.value = '');
+                    fioInput.style.borderColor = '#ccc';
+                    emailInput.style.borderColor = '#ccc';
+                    passwordInput.style.borderColor = '#ccc';
+                    passwordConfirmInput.style.borderColor = '#ccc';
+                    phoneInput.style.borderColor = '#ccc';
+                    birthdayInput.style.borderColor = '#ccc';
+                    languagesTitle.style.color = 'black';
+                    genderTitle.style.color = 'black';
+                    AboutMe.value = '';
+                    prof.selectedIndex = 0;
+                    otherInput.style.display = "none";
+                });
 
             </script>
         </div>

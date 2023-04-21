@@ -118,6 +118,7 @@
 .button2 {
     height: 30px;
     width: 250px;
+    color: white;
     background-color: rgb(169, 42, 203);
     border: 1px solid black;
     border-radius: 4px;
@@ -161,4 +162,55 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=phone],
+input[type=date]{
+    width: 500px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus {
+    border: 2px solid #222222;
+}
+
+button[type=submit] {
+    background-color: #222222;
+    color: white;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+button[type=submit]:hover {
+    background-color: #141414;
+}
+
+.language{
+    font-size: 17px;
+}
+
+#task9-form {
+    max-width: 500px;
+}
+
+#clear-button{
+    background-color: #222222;
+    color: white;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
 }
