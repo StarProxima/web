@@ -142,3 +142,23 @@
     border: 1px solid black;
     background-image: image('https://sun9-10.userapi.com/impg/0FVXLpm-vbsLhX9f2rgGUuf8DHlh90XDB_MiHA/r3prwECw4d4.jpg?size=1620x2160&quality=95&sign=e9ee214206a8fc192da855891de12d59&type=album');
 }
+
+/*task 8 */
+.task8img {
+    max-width: 500px;
+    max-height: 500px;
+    z-index: 20;
+}
+
+.task8text {
+    font-size: 30px;
+    font-weight: 800;
+    z-index: 10;
+    position: absolute;
+}
+
+.task8container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

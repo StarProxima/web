@@ -294,8 +294,9 @@
             </div>
             <script>
                 let flag = 0
+
                 function fade(element, callback) {
-                    let op = 1;  // initial opacity
+                    let op = 1; 
                     let timer = setInterval(function () {
                         if (op <= 0.1){
                             clearInterval(timer);
@@ -326,7 +327,7 @@
                 }
                 let slad_list_name = document.getElementById('slad_list_name');
                 let slad_list = document.getElementById('slad_list');
-                // отображение списка вкусняшек
+               
                 slad_list_name.onclick = function() {
                     if (slad_list.style.display === "block") {
                         slad_list.style.display = "none";
@@ -334,6 +335,70 @@
                         slad_list.style.display = "block";
                     }
                 }
+
+            </script>
+        </div>
+        <div>
+            <button onclick="toggleContent(8)">Task 8</button>
+            <script>
+
+            </script>
+            <div>
+              
+                <div class="content" id="content8">
+                    <div class="task8container">
+                        <h3 class="task8text">❤️Lovemaker❤️</h3>
+                        <img class="task8img" id="task8nig" src="https://sun2-10.userapi.com/impg/0FVXLpm-vbsLhX9f2rgGUuf8DHlh90XDB_MiHA/r3prwECw4d4.jpg?size=1620x2160&quality=95&sign=e9ee214206a8fc192da855891de12d59&type=album"/>
+                    </div>
+                </div>
+                <script>
+                    
+		function makehover(obj, opacity_new, mult)
+		{
+			if (obj.style.opacity <= 1 && obj.style.opacity >= 0) {
+				opacity_new = opacity_new - 0.1 * mult;
+				obj.style.opacity = opacity_new;
+				if (obj.style.opacity > 1) {
+				obj.style.opacity = 1;
+				}
+				if (obj.style.opacity < 0) {
+				obj.style.opacity = 0;
+				}
+			}
+		}
+
+		nig = document.getElementById("task8nig");
+		hoveredall = false;
+		let hov, allhov;
+
+		let mult = -1;
+		const isHover = (e) => e.parentElement.querySelector(":hover") === e;
+
+		const myDiv = document.getElementById("task8nig");
+		document.addEventListener("mousemove", function checkHover() {
+		const hovered = isHover(myDiv);
+		if (hovered !== checkHover.hovered) {
+			if (hovered) {
+			clearInterval(allhov);
+			mult = +1;
+			hov = setInterval(function () {
+				makehover(myDiv, myDiv.style.opacity, mult);
+			}, 50);
+			} else {
+			mult = -1;
+			clearInterval(hov);
+			allhov = setInterval(function () {
+				makehover(myDiv, myDiv.style.opacity, mult);
+			}, 50);
+			}
+			checkHover.hovered = hovered;
+			hoveredall = hovered;
+		}
+		});
+                </script>
+            </div>
+            <script>
+                
 
             </script>
         </div>
