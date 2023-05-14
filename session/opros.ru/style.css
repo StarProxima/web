@@ -1,0 +1,40 @@
+.row {
+    display: flex;
+    align-items: center;
+    height: 10vh;
+}
+
+.question {
+    font-size: 25px;
+    font-weight: 100;
+    padding: 30px;
+    color: #000000;
+    display: flex;
+}
+
+.text {
+    font-size: 20px;
+    color: #000000;
+    display: flex;
+}
+
+.answer {
+    font-size: 23px;
+    width: 400px;
+    padding: 5px;
+    border: 2px solid #7a7a7a;
+}
+
+.submit {
+    font-size: 25px;
+    padding: 5px 10px;
+    background-color: #000274;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: #0071a6;
+}
