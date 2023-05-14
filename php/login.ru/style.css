@@ -1,0 +1,31 @@
+.text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.txbox {
+    font-size: 12px;
+    padding: 7px;
+    width: 400px;
+    border: 2px solid #7a7a7a;
+}
+
+.submit {
+    font-size: 25px;
+    padding: 10px 10px;
+    width: 300px;
+    background-color: #000274;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: #0071a6;
+}
+
+* {
+    margin: 10px 0;
+}
